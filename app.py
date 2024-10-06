@@ -31,9 +31,9 @@ def get_gemini_response(question):
 
 
 
-st.set_page_config(page_title="Q&A Demo")
+st.set_page_config(page_title="Advance Bot")
 
-st.header("JUDO CHATBOT ~ GenfitZ")
+st.header("Ask Storm...")
 
 input=st.text_input("Input: ",key="input")
 
