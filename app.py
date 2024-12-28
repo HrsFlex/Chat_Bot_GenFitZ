@@ -41,11 +41,15 @@ def set_background(png_file):
 
 def get_gemini_response(question):
     try:
-        response = genai.generate_text(model="gemini-pro", prompt=question)
+        # Attempt to generate a response
+        response = genai.generate(model="gemini-pro", prompt=question)  # Adjust if this is incorrect
         return response.result  # Adjust based on API response structure
+    except AttributeError as e:
+        st.error(f"API method not found: {e}")
+        st.write("Debugging information: ", dir(genai))  # List available methods for debugging
     except Exception as e:
         st.error(f"Error fetching response: {e}")
-        return None
+
 
 # Streamlit app setup
 st.set_page_config(page_title="Advance Bot")
